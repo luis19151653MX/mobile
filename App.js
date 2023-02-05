@@ -59,7 +59,7 @@ export default function App() {
               Learn NativeBase
             </Text>
             <Text color="primary.500" underline fontSize={"xl"}>
-              Luis Gutierrez
+              Luis Gutierrez. 19151653
             </Text>
           </Link>
           <ToggleDarkMode />
