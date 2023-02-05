@@ -58,6 +58,9 @@ export default function App() {
             <Text color="primary.500" underline fontSize={"xl"}>
               Learn NativeBase
             </Text>
+            <Text color="primary.500" underline fontSize={"xl"}>
+              Luis Gutierrez
+            </Text>
           </Link>
           <ToggleDarkMode />
         </VStack>
