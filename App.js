@@ -15,7 +15,7 @@ import {
   useTheme
 } from "native-base";
 import NativeBaseIcon from "./components/NativeBaseIcon";
-import { Platform } from "react-native";
+import CustomTheme from "./components/CustomTheme";
 
 // Define the config
 const config = {
@@ -68,10 +68,7 @@ export default function App() {
         </VStack>
 
         <Center flex={1} p="3">
-          <ColorPalete />
-        </Center>
-        <Center flex={1} p="3">
-          <ColorPaletePink />
+          <CustomTheme/>
         </Center>
       </Center>
 
