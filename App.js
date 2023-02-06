@@ -11,6 +11,8 @@ import {
   extendTheme,
   VStack,
   Box,
+  FlatList,
+  useTheme
 } from "native-base";
 import NativeBaseIcon from "./components/NativeBaseIcon";
 import { Platform } from "react-native";
@@ -64,7 +66,15 @@ export default function App() {
           </Link>
           <ToggleDarkMode />
         </VStack>
+
+        <Center flex={1} p="3">
+          <ColorPalete />
+        </Center>
+        <Center flex={1} p="3">
+          <ColorPaletePink />
+        </Center>
       </Center>
+
     </NativeBaseProvider>
   );
 }
@@ -85,4 +95,25 @@ function ToggleDarkMode() {
       <Text>Light</Text>
     </HStack>
   );
+}
+
+function ColorPalete() {
+  const {
+    colors
+  } = useTheme();
+  return <Box>
+    <FlatList numColumns="5" data={Object.keys(colors["primary"])} renderItem={({
+      item
+    }) => <Box p="5" bg={`primary.${item}`} />} />
+  </Box>;
+}
+function ColorPaletePink() {
+  const {
+    colors
+  } = useTheme();
+  return <Box>
+    <FlatList numColumns="5" data={Object.keys(colors["secondary"])} renderItem={({
+      item
+    }) => <Box p="5" bg={`secondary.${item}`} />} />
+  </Box>;
 }
