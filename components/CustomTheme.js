@@ -1,5 +1,5 @@
 import React from 'react';
-import { NativeBaseProvider, extendTheme, Box} from 'native-base';
+import { NativeBaseProvider, extendTheme, Box } from 'native-base';
 
 export default function () {
     const theme = extendTheme({
@@ -13,6 +13,9 @@ export default function () {
                 4: '#1a91ff',
                 5: '#0e7490',
                 6: '#164e63',
+            },
+            tema2:{
+                0: '#a8a29e',
             }
         },
 
@@ -30,6 +33,17 @@ export default function () {
             <Box bg="tema.4" p="4" />
             <Box bg="tema.5" p="4" />
             <Box bg="tema.6" p="4" />
+            <Box>
+                <Box alignSelf="center" // bg="primary.500"
+                    _text={{
+                        fontSize: "md",
+                        fontWeight: "medium",
+                        color: "warmGray.50",
+                        letterSpacing: "lg"
+                    }} bg={["red.400", "blue.400"]}>
+                    This is a Box
+                </Box>
+            </Box>;
         </NativeBaseProvider>
     );
 
