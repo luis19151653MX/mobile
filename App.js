@@ -1,5 +1,6 @@
 import React from 'react';
 import { NativeBaseProvider, extendTheme, Box } from 'native-base';
+import BoxTheme from './components/BoxTheme';
 
 export default function App() {
   const theme = extendTheme({
@@ -44,6 +45,7 @@ export default function App() {
           This is a Box
         </Box>
       </Box>;
+      <BoxTheme></BoxTheme>
     </NativeBaseProvider>
   );
 
