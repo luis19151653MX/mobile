@@ -44,7 +44,7 @@ export default function App() {
           }} bg={["red.400", "blue.400"]}>
           This is a Box
         </Box>
-      </Box>;
+      </Box>
       <BoxTheme></BoxTheme>
     </NativeBaseProvider>
   );
