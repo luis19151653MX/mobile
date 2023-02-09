@@ -1,4 +1,4 @@
-import { AspectRatio, Box } from "native-base";
+import { AspectRatio, Box,Image } from "native-base";
 import React from "react";
 
 
