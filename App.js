@@ -1,6 +1,7 @@
 import React from 'react';
 import { NativeBaseProvider, extendTheme, Box } from 'native-base';
 import BoxTheme from './components/BoxTheme';
+import ImagenCarro from './components/ImagenCarro';
 
 export default function App() {
   const theme = extendTheme({
@@ -46,6 +47,7 @@ export default function App() {
         </Box>
       </Box>
       <BoxTheme></BoxTheme>
+      <ImagenCarro></ImagenCarro>
     </NativeBaseProvider>
   );
 
