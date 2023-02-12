@@ -3,15 +3,13 @@ import React from "react";
 import { useState } from "react";
 
 
-const test1 = require('../assets/coche_electrico.png');
-const test2 = "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg";
+const img1 = require('../assets/coche_electrico.png');
+const img2 = require('../assets/favicon.png');
+const imagenes={img1,img2};
+
 
 export default function BoxTheme() {
-    
-    const uri1 = "https://www.shutterstock.com/image-photo/panoramic-skyline-modern-commercial-office-260nw-2104341320.jpg";
-    const uri2 = "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg";
-    const tests = { uri1, uri2 };
-    const [selected, setSelected] = useState(tests.test2);
+    const [selected, setSelected] = useState(imagenes.img2);
     return (
         <Box alignItems="center">
             <Box maxW="80" rounded="lg" overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
@@ -25,7 +23,7 @@ export default function BoxTheme() {
             }}>
                 <Box>
                     <AspectRatio w="100%" ratio={16 / 9}>
-                        <Image source={{uri:"https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"}} alt="image" />
+                        <Image source={selected} alt="image" />
                     </AspectRatio>
                     <Center bg="violet.500" _dark={{
                         bg: "violet.400"
@@ -65,7 +63,7 @@ export default function BoxTheme() {
                     </HStack>
                 </Stack>
                 <Box alignItems="center">
-                    <Button onPress={() => { setSelected(tests.uri1); }}>Click Me</Button>
+                    <Button onPress={() => { setSelected(imagenes.img1); }}>Click Me</Button>
                 </Box>
             </Box>
         </Box>
