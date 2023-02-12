@@ -5,11 +5,12 @@ import { useState } from "react";
 
 const img1 = require('../assets/coche_electrico.png');
 const img2 = require('../assets/favicon.png');
-const imagenes={img1,img2};
+const img3 = require('../assets/cd.webp');
+const imagenes = { img1, img2, img3 };
 
 
 export default function BoxTheme() {
-    const [selected, setSelected] = useState(imagenes.img2);
+    const [selected, setSelected] = useState(imagenes.img3);
     return (
         <Box alignItems="center">
             <Box maxW="80" rounded="lg" overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
@@ -22,7 +23,11 @@ export default function BoxTheme() {
                 backgroundColor: "gray.50"
             }}>
                 <Box>
-                    <AspectRatio w="100%" ratio={16 / 9}>
+                    <AspectRatio ratio={{
+                        base: 3 / 4,
+                        md: 1 / 10
+                    }}
+                        w="100%">
                         <Image source={selected} alt="image" />
                     </AspectRatio>
                     <Center bg="violet.500" _dark={{
@@ -63,7 +68,7 @@ export default function BoxTheme() {
                     </HStack>
                 </Stack>
                 <Box alignItems="center">
-                    <Button onPress={() => { setSelected(imagenes.img1); }}>Click Me</Button>
+                    <Button onPress={() => { setSelected(imagenes.img2); }}>Click Me</Button>
                 </Box>
             </Box>
         </Box>
