@@ -1,7 +1,6 @@
 import React from 'react';
 import { NativeBaseProvider, extendTheme, Box } from 'native-base';
-import BoxTheme from './components/BoxTheme';
-import ImagenCarro from './components/ImagenCarro';
+import BoxCard from "./components/BoxCard";
 
 export default function App() {
   const theme = extendTheme({
@@ -28,26 +27,7 @@ export default function App() {
   });
   return (
     <NativeBaseProvider theme={theme}>
-      <Box bg="tema.0" p="4" />
-      <Box bg="tema.1" p="4" />
-      <Box bg="tema.2" p="4" />
-      <Box bg="tema.3" p="4" />
-      <Box bg="tema.4" p="4" />
-      <Box bg="tema.5" p="4" />
-      <Box bg="tema.6" p="4" />
-      <Box>
-        <Box alignSelf="center" // bg="primary.500"
-          _text={{
-            fontSize: "md",
-            fontWeight: "medium",
-            color: "warmGray.50",
-            letterSpacing: "lg"
-          }} bg={["red.400", "blue.400"]}>
-          This is a Box
-        </Box>
-      </Box>
-      <BoxTheme></BoxTheme>
-      <ImagenCarro></ImagenCarro>
+      <BoxCard></BoxCard>
     </NativeBaseProvider>
   );
 
