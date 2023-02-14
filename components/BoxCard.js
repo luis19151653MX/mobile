@@ -23,11 +23,7 @@ export default function BoxTheme() {
                 backgroundColor: "gray.50"
             }}>
                 <Box>
-                    <AspectRatio ratio={{
-                        base: 3 / 4,
-                        md: 1 / 10
-                    }}
-                        w="100%">
+                    <AspectRatio w="100%" ratio={16/9}>
                         <Image source={selected} alt="image" />
                     </AspectRatio>
                     <Center bg="violet.500" _dark={{
@@ -67,10 +63,13 @@ export default function BoxTheme() {
                         </HStack>
                     </HStack>
                 </Stack>
-                <Box alignItems="center">
-                    <Button onPress={() => { setSelected(imagenes.img2); }}>Click Me</Button>
-                </Box>
             </Box>
         </Box>
     );
 }
+
+/*
+<Box alignItems="center">
+                    <Button onPress={() => { setSelected(imagenes.img2); }}>Click Me</Button>
+                </Box>
+*/

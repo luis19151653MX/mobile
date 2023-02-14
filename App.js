@@ -1,6 +1,7 @@
 import React from 'react';
 import { NativeBaseProvider, extendTheme, Box } from 'native-base';
-import BoxCard from "./components/BoxCard";
+import CenterBox from  "./components/CenterBox";
+import Center from './components/CenterBox';
 
 export default function App() {
   const theme = extendTheme({
@@ -27,7 +28,7 @@ export default function App() {
   });
   return (
     <NativeBaseProvider theme={theme}>
-      <BoxCard></BoxCard>
+      <Center></Center>
     </NativeBaseProvider>
   );
 
