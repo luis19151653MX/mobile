@@ -15,7 +15,7 @@ export default function CenterBox() {
                 <Button colorScheme="danger" onPress={()=>console.log("Presionado")}>
                     Boton
                 </Button>
-                <Button colorScheme="tema.5" onPress={()=>console.log("Presionado")}>
+                <Button colorScheme="tema.6" onPress={()=>console.log("Presionado")}>
                     Boton
                 </Button>
             </VStack>
