@@ -2,7 +2,7 @@ import { Center, VStack,Button} from "native-base";
 import React from "react";
 
 
-export default function Center() {
+export default function CenterBox() {
     return (
         <Center bg="tema.5" p="20" w="100%" h="100%">
             <VStack space={2} alignItems={{
