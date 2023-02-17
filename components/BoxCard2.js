@@ -101,20 +101,10 @@ export default function BoxCard() {
               </HStack>
 
               <LinearGradient
-                colors={['#6e45e2', '#88d3ce']}
+                colors={['#193329', '#88d3ce']}
+                start={{ x: 0.5, y: 0.2 }}
               >
                 <HStack alignItems="center">
-                  <Container p="3" >
-                    <Heading>
-                      A component library for the
-                      <Text color="emerald.500"> React Ecosystem</Text>
-                    </Heading>
-                    <Text mt="3" fontWeight="medium">
-                      NativeBase is a simple, modular and accessible component
-                      library that gives you building blocks to build you React
-                      applications.
-                    </Text>
-                  </Container>
                   <AspectRatio
                     ratio={{
                       base: 3 / 4,
@@ -132,6 +122,17 @@ export default function BoxCard() {
                       alt="Picture of a Flower"
                     />
                   </AspectRatio>
+                  <Container p="3" >
+                    <Heading>
+                      A component library for the
+                      <Text color="emerald.500"> React Ecosystem</Text>
+                    </Heading>
+                    <Text mt="3" fontWeight="medium">
+                      NativeBase is a simple, modular and accessible component
+                      library that gives you building blocks to build you React
+                      applications.
+                    </Text>
+                  </Container>
                 </HStack>
               </LinearGradient>
 
