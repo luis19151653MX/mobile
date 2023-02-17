@@ -101,8 +101,9 @@ export default function BoxCard() {
               </HStack>
 
               <LinearGradient
-                colors={['#193329', '#88d3ce']}
-                start={{ x: 0.5, y: 0.2 }}
+                colors={['#193329', '#19FF29']}
+                start={{ x: 0.0, y: 1}}
+                end={{ x: 1, y: 5 }}
               >
                 <HStack alignItems="center">
                   <AspectRatio
