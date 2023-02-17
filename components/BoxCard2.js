@@ -1,22 +1,20 @@
 import React from "react";
-import {Pressable,
-    Text,
-    Box,
-    HStack,
-    Spacer,
-    Flex,
-    Badge,
-    Center,
-    NativeBaseProvider,
-    AspectRatio,
-    Image,
-    Container,
-    Heading,} from "native-base";
+import {
+  Pressable,
+  Text,
+  Box,
+  HStack,
+  AspectRatio,
+  Image,
+  Container,
+  Heading,
+} from "native-base";
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 export default function BoxCard() {
-    return (
-        <Box alignItems="center" >
+  return (
+    <Box alignItems="center" >
       <Pressable maxW="96" >
         {({ isHovered, isFocused, isPressed }) => {
           return (
@@ -25,8 +23,8 @@ export default function BoxCard() {
                 isPressed
                   ? "#193329"
                   : isHovered
-                  ? 'coolGray.200'
-                  : 'coolGray.100'
+                    ? 'coolGray.200'
+                    : 'coolGray.100'
               }
               style={{
                 transform: [
@@ -70,9 +68,9 @@ export default function BoxCard() {
                   </Text>
                 </Container>
               </HStack>
-              
+
               <HStack alignItems="center" bg="#f0143f" >
-              <Container p="3" >
+                <Container p="3" >
                   <Heading>
                     A component library for the
                     <Text color="emerald.500"> React Ecosystem</Text>
@@ -101,13 +99,47 @@ export default function BoxCard() {
                   />
                 </AspectRatio>
               </HStack>
-              
-              
+
+              <LinearGradient
+                colors={['#6e45e2', '#88d3ce']}
+              >
+                <HStack alignItems="center">
+                  <Container p="3" >
+                    <Heading>
+                      A component library for the
+                      <Text color="emerald.500"> React Ecosystem</Text>
+                    </Heading>
+                    <Text mt="3" fontWeight="medium">
+                      NativeBase is a simple, modular and accessible component
+                      library that gives you building blocks to build you React
+                      applications.
+                    </Text>
+                  </Container>
+                  <AspectRatio
+                    ratio={{
+                      base: 3 / 4,
+                      md: 9 / 10,
+                    }}
+                    height={{
+                      base: 200,
+                      md: 400,
+                    }}>
+                    <Image
+                      resizeMode="cover"
+                      source={{
+                        uri: 'https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+                      }}
+                      alt="Picture of a Flower"
+                    />
+                  </AspectRatio>
+                </HStack>
+              </LinearGradient>
+
             </Box>
           );
         }}
       </Pressable>
     </Box>
-        
-    );
+
+  );
 }
