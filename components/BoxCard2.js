@@ -14,22 +14,16 @@ import {Pressable,
     Heading,} from "native-base";
 
 
-const img1 = require('../assets/coche_electrico.png');
-const img2 = require('../assets/favicon.png');
-const img3 = require('../assets/cd.webp');
-const imagenes = { img1, img2, img3 };
-
-
 export default function BoxCard() {
     return (
-        <Box alignItems="center">
-      <Pressable maxW="96">
+        <Box alignItems="center" >
+      <Pressable maxW="96" >
         {({ isHovered, isFocused, isPressed }) => {
           return (
             <Box
               bg={
                 isPressed
-                  ? 'primary.50'
+                  ? "#193329"
                   : isHovered
                   ? 'coolGray.200'
                   : 'coolGray.100'
@@ -46,7 +40,7 @@ export default function BoxCard() {
               shadow={3}
               borderWidth="1"
               borderColor="coolGray.300">
-              <HStack alignItems="center">
+              <HStack alignItems="center" bg="#193329">
                 <AspectRatio
                   ratio={{
                     base: 3 / 4,
@@ -77,38 +71,38 @@ export default function BoxCard() {
                 </Container>
               </HStack>
               
-              <Text
-                color="coolGray.800"
-                mt="3"
-                fontWeight="medium"
-                fontSize="xl">
-                Marketing License
-              </Text>
-              <Text mt="2" fontSize="sm" color="coolGray.700">
-                Unlock powerfull time-saving tools for creating email delivery
-                and collecting marketing data
-              </Text>
-              <Flex>
-                {isFocused ? (
-                  <Text
-                    mt="2"
-                    fontSize={12}
-                    fontWeight="medium"
-                    textDecorationLine="underline"
-                    color="darkBlue.600"
-                    alignSelf="flex-start">
-                    Read More
+              <HStack alignItems="center" bg="#f0143f" >
+              <Container p="3" >
+                  <Heading>
+                    A component library for the
+                    <Text color="emerald.500"> React Ecosystem</Text>
+                  </Heading>
+                  <Text mt="3" fontWeight="medium">
+                    NativeBase is a simple, modular and accessible component
+                    library that gives you building blocks to build you React
+                    applications.
                   </Text>
-                ) : (
-                  <Text
-                    mt="2"
-                    fontSize={12}
-                    fontWeight="medium"
-                    color="darkBlue.600">
-                    Read More
-                  </Text>
-                )}
-              </Flex>
+                </Container>
+                <AspectRatio
+                  ratio={{
+                    base: 3 / 4,
+                    md: 9 / 10,
+                  }}
+                  height={{
+                    base: 200,
+                    md: 400,
+                  }}>
+                  <Image
+                    resizeMode="cover"
+                    source={{
+                      uri: 'https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+                    }}
+                    alt="Picture of a Flower"
+                  />
+                </AspectRatio>
+              </HStack>
+              
+              
             </Box>
           );
         }}
