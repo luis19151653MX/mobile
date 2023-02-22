@@ -2,6 +2,7 @@ import React from 'react';
 import { NativeBaseProvider, extendTheme, Box, Center, HStack } from 'native-base';
 import CenterBox from  "./components/CenterBox";
 import BoxCard2 from  "./components/BoxCard2";
+import Login from "./components/Login";
 
 export default function App() {
   const theme = extendTheme({
@@ -29,7 +30,7 @@ export default function App() {
   return (
     <NativeBaseProvider theme={theme}>
       <Center flex={1} px="3" p="2">
-      <BoxCard2></BoxCard2>
+      <Login></Login>
       </Center>
     </NativeBaseProvider>
   );
