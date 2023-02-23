@@ -1,14 +1,22 @@
 import React, { useState } from "react";
-import { VStack, FormControl, Input, Button, useToast, Box, Icon, Pressable, Divider } from "native-base";
+import { VStack, FormControl, Input, Button, useToast, Box, Icon, Pressable, Divider, NativeBaseProvider } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
+import BoxGradient from "./BoxGradient";
 
 export default function Login() {
+    const LinearGradient = require('expo-linear-gradient').LinearGradient;
     const toast = useToast();
     //puede ser asi o con el import de sseState
     const [formData, setFormData] = useState({ nickname: undefined, password: '' })
     const [errorsData, setErrorsData] = useState({})
 
     const [show, setShow] = React.useState(false);
+
+    const config = {
+        dependencies: {
+            'linear-gradient': LinearGradient
+        }
+    };
 
 
     const Validate = () => {
@@ -48,8 +56,9 @@ export default function Login() {
 
     //isInvalid
     return (
-        <VStack>
-
+        <VStack >
+            <BoxGradient></BoxGradient>
+            <Divider></Divider>
             <FormControl isRequired isInvalid={'error' in errorsData}>
                 <FormControl.Label>Usuario</FormControl.Label>
                 <Input
@@ -97,17 +106,23 @@ export default function Login() {
                 }
                 <Divider my={4}></Divider>
                 <Button
-                bgColor={{
-                    linearGradient: {
-                      colors: ['lightBlue.300', 'violet.800'],
-                      start: [0, 0],
-                      end: [1, 0]
-                    }
-                  }}
+                    bg="tema.5"
                     onPress={submit}
                 >
                     Enviar
                 </Button>
+                <Divider my={2}/>
+                <Box rounded="md" bg={{
+                    linearGradient: {
+                        colors: ['lightBlue.300', 'violet.800'],
+                        start: [0, 0],
+                        end: [1, 0]
+                    }
+                }}>
+                    <Button variant="unstyled"  >
+                        Enviar grad
+                    </Button>
+                </Box>
             </FormControl>
         </VStack>
     );

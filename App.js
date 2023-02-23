@@ -4,7 +4,9 @@ import CenterBox from  "./components/CenterBox";
 import BoxCard2 from  "./components/BoxCard2";
 import Login from "./components/Login";
 
+
 export default function App() {
+  const LinearGradient = require('expo-linear-gradient').LinearGradient;
   const theme = extendTheme({
     colors: {
       // Add new color
@@ -20,15 +22,19 @@ export default function App() {
       tema2: {
         0: '#a8a29e',
       }
-    },
-
-    config: {
-      // Changing initialColorMode to 'dark'
-      initialColorMode: 'dark',
-    },
+    }
   });
+
+  const config = {
+    dependencies: {
+      initialColorMode:'dark',
+        'linear-gradient': LinearGradient
+    }
+};
+
+
   return (
-    <NativeBaseProvider theme={theme}>
+    <NativeBaseProvider theme={theme} config={config}>
       <Center flex={1} px="3" p="2">
       <Login></Login>
       </Center>
