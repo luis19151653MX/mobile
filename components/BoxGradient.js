@@ -6,11 +6,11 @@ export default function Login() {
     return (
             <Box bg={{
                 linearGradient: {
-                    colors: ['lightBlue.400', 'violet.800'],
+                    colors: ['lightBlue.300', 'violet.300'],
                     start: [0, 0],
                     end: [1, 0]
                 }
-            }} p="12" rounded="xl" _text={{
+            }} p="8" rounded="xl" _text={{
                 fontSize: 'md',
                 fontWeight: 'medium',
                 color: 'warmGray.50',

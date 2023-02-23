@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { VStack, FormControl, Input, Button, useToast, Box, Icon, Pressable, Divider, NativeBaseProvider } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
 import BoxGradient from "./BoxGradient";
+import ButtonGradient from "./ButtonGradient";
 
 export default function Login() {
     const LinearGradient = require('expo-linear-gradient').LinearGradient;
@@ -112,17 +113,7 @@ export default function Login() {
                     Enviar
                 </Button>
                 <Divider my={2}/>
-                <Box rounded="md" bg={{
-                    linearGradient: {
-                        colors: ['lightBlue.300', 'violet.800'],
-                        start: [0, 0],
-                        end: [1, 0]
-                    }
-                }}>
-                    <Button variant="unstyled"  >
-                        Enviar grad
-                    </Button>
-                </Box>
+                <ButtonGradient></ButtonGradient>
             </FormControl>
         </VStack>
     );
