@@ -13,13 +13,6 @@ export default function Login() {
 
     const [show, setShow] = React.useState(false);
 
-    const config = {
-        dependencies: {
-            'linear-gradient': LinearGradient
-        }
-    };
-
-
     const Validate = () => {
         //los ... son para ir concatenano los errores, esto se hace en los objetos {}
         if (formData.nickname === undefined) {
@@ -106,14 +99,8 @@ export default function Login() {
                         )
                 }
                 <Divider my={4}></Divider>
-                <Button
-                    bg="tema.5"
-                    onPress={submit}
-                >
-                    Enviar
-                </Button>
+                    <ButtonGradient ingresar={submit}/>
                 <Divider my={2}/>
-                <ButtonGradient></ButtonGradient>
             </FormControl>
         </VStack>
     );

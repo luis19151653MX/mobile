@@ -19,8 +19,9 @@ export default function App() {
         5: '#0e7490',
         6: '#164e63',
       },
-      tema2: {
-        0: '#a8a29e',
+      //dark blue 50
+      fondo: {
+        0: '#dbf4ff',
       }
     }
   });
@@ -35,7 +36,13 @@ export default function App() {
 
   return (
     <NativeBaseProvider theme={theme} config={config}>
-      <Center flex={1} px="3" p="2">
+      <Center flex={1} px="3" p="2" bg={{
+                linearGradient: {
+                    colors: ['info.900', 'info.700'],
+                    start: [0, 0],
+                    end: [1, 0]
+                }
+            }}>
       <Login></Login>
       </Center>
     </NativeBaseProvider>
