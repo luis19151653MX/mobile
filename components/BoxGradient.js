@@ -16,7 +16,7 @@ export default function Login() {
                 color: 'warmGray.50',
                 textAlign: 'center'
             }}>
-                This is a Box with Linear Gradient
+                Bienvenido
             </Box>
     );
 }

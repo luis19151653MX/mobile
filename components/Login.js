@@ -64,7 +64,7 @@ export default function Login() {
                 <FormControl.Label>Usuario</FormControl.Label>
                 <Input
                     size="xl" p={2} w="80%"
-                    placeholder="User name..."
+                    placeholder="Usuario..."
                     style={{ color: "#000000" }}
                     onChangeText={value => setFormData({ ...formData, nickname: value })}
                     InputLeftElement={<Icon as={<MaterialIcons name="person" />} size={7} ml="2" color="emerald.600" />} />
