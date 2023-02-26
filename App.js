@@ -3,6 +3,7 @@ import { NativeBaseProvider, extendTheme, Box, Center, HStack } from 'native-bas
 import CenterBox from  "./components/CenterBox";
 import BoxCard2 from  "./components/BoxCard2";
 import Login from "./components/Login";
+import State from "./components/State";
 
 
 export default function App() {
@@ -43,7 +44,7 @@ export default function App() {
                     end: [1, 0]
                 }
             }}>
-      <Login></Login>
+              <State></State>
       </Center>
     </NativeBaseProvider>
   );
