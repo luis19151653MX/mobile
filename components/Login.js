@@ -11,33 +11,35 @@ export default function Login() {
     const [show, setShow] = React.useState(false);
 
     //puede ser asi o con el import de sseState
-    const [formData, setFormData] = useState({ nickname: undefined, password: '' })
-    const [errorsData, setErrorsData] = useState({})
+    const [formData, setFormData] = useState({ nickname: undefined, password: null });
+    const [errorsData, setErrorsData] = useState({});
+    const [erroesVacios,setErroresVacios]=useState({});
 
-    useEffect(()=>{},[errorsData,toastError]);
+    //useEffect(() => { }, [errorsData, toastError]);
 
-    
-
-    const Validate =  () => {
-        //los ... son para ir concatenano los errores, esto se hace en los objetos {}
-        if (formData.nickname === undefined) {
-            setErrorsData({ ...errorsData, error: "Usuario es requerido" });
-            toastError="Campo 'Usuario' requerido";
-            console.log(errorsData);
-            return false;
-        } else if (formData.nickname.length < 4) {
-            setErrorsData({ ...errorsData, error: "Usuario tamaño minimo 4" });
-            toastError="Campo 'Usuario' minimo 4 caracteres";
-            return false;
+    /*
+    if ('error' in errorsData) {
+            removeError();
         }
-        return true;
-    }
+    */
+   
+        //'error' in errorsData ?removeError():console.log(errorsData)
+    function removeError(){
+        setErrorsData(current => {
+            // 👇️ create copy of state object
+            const copy = { ...current };
 
-    let toastSuccess="Bienvenido "+formData.nickname;
-    let toastError="";
+            // 👇️ remove salary key from object
+            delete copy['error'];
+            return copy;
+        });
+    };
+
+    let toastSuccess = "Bienvenido " + formData.nickname;
+    let toastError = "";
 
     const submit = () => {
-        setErrorsData({});
+        console.log(`errores : ${JSON.stringify(errorsData)}`);
         Validate() ?
             (
                 setErrorsData({}),
@@ -55,21 +57,49 @@ export default function Login() {
                 console.log("bad"),
                 toast.show({
                     render: () => {
-                        return <Box bg="error.500" _text={{color:"warmGray.50"}} px="14" py="1" rounded="sm" mb={5}>
+                        return <Box bg="error.500" _text={{ color: "warmGray.50" }} px="14" py="1" rounded="sm" mb={5}>
                             {toastError}
                         </Box>
                     }
                 })
             )
-    }
+
+    };
+
+    const Validate = () => {
+        //los ... son para ir concatenano los errores, esto se hace en los objetos {}
+        if (formData.nickname === undefined) {
+            setErrorsData({ ...errorsData, error: "Usuario es requerido" });
+            toastError = "Campo 'Usuario' requerido";
+            return false;
+        } else if (formData.nickname.length < 4) {
+            setErrorsData({ ...errorsData, error: "Usuario tamaño minimo 4" });
+            toastError = "Campo 'Usuario' minimo 4 caracteres";
+            return false;
+        }
+
+        errorsData.hasOwnProperty('error') ?(removeError(),console.log("hola")):console.log(errorsData);
+        
+        
+        if (formData.password == null) {
+            setErrorsData({ ...errorsData, errorP: "Contraseña es requerida" });
+            toastError = "Campo 'Contraseña' requerido";
+            return false;
+        } else if (formData.password != '12345') {
+            setErrorsData({ ...errorsData, errorP: "Contraseña incorrecta" });
+            toastError = "'Contraseña' incorrecta";
+            return false;
+        }
+        return true;
+    };
 
     //isInvalid
     return (
         <VStack >
             <BoxGradient></BoxGradient>
-            <Divider></Divider>
+            <Divider my={2}></Divider>
             <FormControl isRequired isInvalid={'error' in errorsData} >
-                <FormControl.Label _text={{color:"warmGray.50", fontSize:"md"}} >Usuario</FormControl.Label>
+                <FormControl.Label _text={{ color: "warmGray.50", fontSize: "md" }} >Usuario</FormControl.Label>
                 <Input
                     size="xl" p={2} w="80%"
                     placeholder="Usuario..."
@@ -79,17 +109,17 @@ export default function Login() {
                 {
                     'error' in errorsData ?
                         (
-                            <FormControl.ErrorMessage>Advertencia: {errorsData.error}</FormControl.ErrorMessage>
+                            <FormControl.ErrorMessage _text={{ color: "error.400", fontSize: "sm" }}>Advertencia: {errorsData.error}</FormControl.ErrorMessage>
                         )
                         :
                         (
-                            <FormControl.HelperText _text={{color:"warmGray.50", fontSize:"sm"}} >
+                            <FormControl.HelperText _text={{ color: "warmGray.50", fontSize: "sm" }} >
                                 Ingresa tu nombre de usuario
                             </FormControl.HelperText>
                         )
                 }
 
-                <FormControl.Label _text={{color:"warmGray.50", fontSize:"md"}} >Contraseña</FormControl.Label>
+                <FormControl.Label _text={{ color: "warmGray.50", fontSize: "md" }} >Contraseña</FormControl.Label>
                 {//mr y ml es margin left y right
                 }
                 <Input
@@ -103,20 +133,20 @@ export default function Login() {
                     placeholder="Contraseña"
                     onChangeText={value => setFormData({ ...formData, password: value })} />
                 {
-                    'error' in errorsData ?
+                    'errorP' in errorsData ?
                         (
-                            <FormControl.ErrorMessage>Advertencia: {errorsData.error}</FormControl.ErrorMessage>
+                            <FormControl.ErrorMessage _text={{ color: "error.400", fontSize: "sm" }}>Advertencia: {errorsData.errorP}</FormControl.ErrorMessage>
                         )
                         :
                         (
-                            <FormControl.HelperText  _text={{color:"warmGray.50", fontSize:"sm"}}>
+                            <FormControl.HelperText _text={{ color: "warmGray.50", fontSize: "sm" }}>
                                 Ingresa tu contraseña
                             </FormControl.HelperText>
                         )
                 }
                 <Divider my={4}></Divider>
-                    <ButtonGradient ingresar={submit}/>
-                <Divider my={2}/>
+                <ButtonGradient ingresar={submit} />
+                <Divider my={2} />
             </FormControl>
         </VStack>
     );

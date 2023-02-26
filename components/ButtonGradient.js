@@ -6,7 +6,6 @@ export default function Login(props) {
     return (
         <Pressable
             onPress={() => {
-                console.log('hell'),
                     props.ingresar()
             }}
 
