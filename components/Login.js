@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { VStack, FormControl, Input, Button, useToast, Box, Icon, Pressable, Divider, NativeBaseProvider } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
 import BoxGradient from "./BoxGradient";
@@ -6,24 +6,35 @@ import ButtonGradient from "./ButtonGradient";
 
 export default function Login() {
     const LinearGradient = require('expo-linear-gradient').LinearGradient;
+
     const toast = useToast();
+    const [show, setShow] = React.useState(false);
+
     //puede ser asi o con el import de sseState
     const [formData, setFormData] = useState({ nickname: undefined, password: '' })
     const [errorsData, setErrorsData] = useState({})
 
-    const [show, setShow] = React.useState(false);
+    useEffect(()=>{},[errorsData,toastError]);
 
-    const Validate = () => {
+    
+
+    const Validate =  () => {
         //los ... son para ir concatenano los errores, esto se hace en los objetos {}
         if (formData.nickname === undefined) {
-            setErrorsData({ ...errorsData, error: "Usuario es requrido" });
+            setErrorsData({ ...errorsData, error: "Usuario es requerido" });
+            toastError="Campo 'Usuario' requerido";
+            console.log(errorsData);
             return false;
         } else if (formData.nickname.length < 4) {
             setErrorsData({ ...errorsData, error: "Usuario tamaño minimo 4" });
+            toastError="Campo 'Usuario' minimo 4 caracteres";
             return false;
         }
         return true;
     }
+
+    let toastSuccess="Bienvenido "+formData.nickname;
+    let toastError="";
 
     const submit = () => {
         setErrorsData({});
@@ -32,7 +43,11 @@ export default function Login() {
                 setErrorsData({}),
                 console.log("ok"),
                 toast.show({
-                    description: "Bienvenido " + formData.nickname
+                    render: () => {
+                        return <Box bg="success.300" px="14" py="1" rounded="md" mb={5}>
+                            {toastSuccess}
+                        </Box>
+                    }
                 })
             )
             :
@@ -40,8 +55,8 @@ export default function Login() {
                 console.log("bad"),
                 toast.show({
                     render: () => {
-                        return <Box bg="secondary.500" px="2" py="1" rounded="sm" mb={5}>
-                            {errorsData.error}
+                        return <Box bg="error.500" _text={{color:"warmGray.50"}} px="14" py="1" rounded="sm" mb={5}>
+                            {toastError}
                         </Box>
                     }
                 })
@@ -53,8 +68,8 @@ export default function Login() {
         <VStack >
             <BoxGradient></BoxGradient>
             <Divider></Divider>
-            <FormControl isRequired isInvalid={'error' in errorsData}>
-                <FormControl.Label>Usuario</FormControl.Label>
+            <FormControl isRequired isInvalid={'error' in errorsData} >
+                <FormControl.Label _text={{color:"warmGray.50", fontSize:"md"}} >Usuario</FormControl.Label>
                 <Input
                     size="xl" p={2} w="80%"
                     placeholder="Usuario..."
@@ -68,13 +83,13 @@ export default function Login() {
                         )
                         :
                         (
-                            <FormControl.HelperText>
+                            <FormControl.HelperText _text={{color:"warmGray.50", fontSize:"sm"}} >
                                 Ingresa tu nombre de usuario
                             </FormControl.HelperText>
                         )
                 }
 
-                <FormControl.Label>Contraseña</FormControl.Label>
+                <FormControl.Label _text={{color:"warmGray.50", fontSize:"md"}} >Contraseña</FormControl.Label>
                 {//mr y ml es margin left y right
                 }
                 <Input
@@ -85,7 +100,8 @@ export default function Login() {
                             <Icon as={<MaterialIcons name={show ? "visibility" : "visibility-off"} />}
                                 size={7} mr="2" color="emerald.600" />
                         </Pressable>}
-                    placeholder="Contraseña" />
+                    placeholder="Contraseña"
+                    onChangeText={value => setFormData({ ...formData, password: value })} />
                 {
                     'error' in errorsData ?
                         (
@@ -93,7 +109,7 @@ export default function Login() {
                         )
                         :
                         (
-                            <FormControl.HelperText>
+                            <FormControl.HelperText  _text={{color:"warmGray.50", fontSize:"sm"}}>
                                 Ingresa tu contraseña
                             </FormControl.HelperText>
                         )
