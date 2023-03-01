@@ -4,6 +4,7 @@ import CenterBox from  "./components/CenterBox";
 import BoxCard2 from  "./components/BoxCard2";
 import Login from "./components/Login";
 import State from "./components/State";
+import SelectMio from "./components/SelectExample";
 
 
 export default function App() {
@@ -45,6 +46,7 @@ export default function App() {
                 }
             }}>
               <State></State>
+              <SelectMio></SelectMio>
       </Center>
     </NativeBaseProvider>
   );

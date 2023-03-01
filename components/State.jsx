@@ -55,6 +55,19 @@ export default function State() {
             )
     }
 
+    const send_request=async()=>{
+        console.log('ok',formData);
+        try{
+            const response=await fetch("http");
+            const json= await response.json();
+            console.log("json response:", json);
+            return json;
+        }catch(error){
+            console.log(error);
+        }
+
+    }
+
     //isInvalid
     return (
         <VStack >
