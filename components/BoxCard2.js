@@ -13,6 +13,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 
 export default function BoxCard() {
+  const img1 = require('../assets/coche_electrico.png');
   return (
     <Box alignItems="center" >
       <Pressable maxW="96" >
@@ -102,7 +103,7 @@ export default function BoxCard() {
 
               <LinearGradient
                 colors={['#193329', '#19FF29']}
-                start={{ x: 0.0, y: 1}}
+                start={{ x: 0.0, y: 1 }}
                 end={{ x: 1, y: 5 }}
               >
                 <HStack alignItems="center">
@@ -136,6 +137,37 @@ export default function BoxCard() {
                   </Container>
                 </HStack>
               </LinearGradient>
+
+              <HStack alignItems="center" bg="#f0143f" >
+                <Container p="3" >
+                  <Heading>
+                    A component library for the
+                    <Text color="emerald.500"> React Ecosystem</Text>
+                  </Heading>
+                  <Text mt="3" fontWeight="medium">
+                    NativeBase is a simple, modular and accessible component
+                    library that gives you building blocks to build you React
+                    applications.
+                  </Text>
+                </Container>
+                <AspectRatio
+                  ratio={{
+                    base: 3 / 4,
+                    md: 9 / 10,
+                  }}
+                  height={{
+                    base: 200,
+                    md: 400,
+                  }}>
+                  <Image
+                    resizeMode="contain"
+                    source={require('../assets/coche-icon-gif.gif')}
+                    alt="Picture of a Flower"
+                    size="lg"
+                  />
+                </AspectRatio>
+              </HStack>
+
 
             </Box>
           );

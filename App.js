@@ -45,8 +45,7 @@ export default function App() {
                     end: [1, 0]
                 }
             }}>
-              <State></State>
-              <SelectMio></SelectMio>
+              <BoxCard2></BoxCard2>
       </Center>
     </NativeBaseProvider>
   );
